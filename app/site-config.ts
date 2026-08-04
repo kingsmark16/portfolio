@@ -13,7 +13,7 @@ export const siteConfig = {
   name: "Mark Angel Concina",
   title: "Mark Angel Concina | Full Stack Developer",
   description:
-    "Mark Angel Concina is a full stack developer from Camarines Sur, Philippines, creating reliable and accessible web applications from the user interface to production deployment.",
+    "Mark Angel Concina is a full stack developer from Camarines Sur, Philippines. He builds practical, responsive web applications with modern frontend and backend technologies, databases, APIs, and cloud deployment.",
   url: normalizeSiteUrl(configuredSiteUrl),
   email: "mrkconcina@gmail.com",
   telephone: "+639694451271",
