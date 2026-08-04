@@ -12,7 +12,6 @@ import {
   Gamepad2,
   GraduationCap,
   Layers3,
-  Menu,
   MapPin,
   MonitorSmartphone,
   Triangle,
@@ -26,6 +25,7 @@ import {
 import GitHubActivity from "./components/GitHubActivity";
 import CapstoneCarousel from "./components/CapstoneCarousel";
 import CollegeRageCarousel from "./components/CollegeRageCarousel";
+import MobileNavigation from "./components/MobileNavigation";
 import PortfolioMotion from "./components/PortfolioMotion";
 import { siteConfig } from "./site-config";
 
@@ -254,18 +254,7 @@ export default function Home() {
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </nav>
-          <details className="mobile-menu">
-            <summary aria-label="Open navigation menu"><Menu size={16} aria-hidden="true" /><span className="sr-only">Open navigation menu</span></summary>
-            <nav className="mobile-menu-nav" aria-label="Mobile navigation">
-              <a href="#projects">Projects</a>
-              <a href="#skills">Skills</a>
-              <a href="#services">Services</a>
-              <a href="#experience">Experience</a>
-              <a href="#activity">Activity</a>
-              <a href="#education">Education</a>
-              <a href="#contact">Contact</a>
-            </nav>
-          </details>
+          <MobileNavigation />
           </header>
 
           <main id="main-content">
@@ -308,7 +297,6 @@ export default function Home() {
           <section className="case-study framed-section" id="projects" aria-labelledby="capstone-title">
             <span className="section-ribbon">Capstone project</span>
             <div className="case-copy">
-              <p className="section-kicker">Featured case study</p>
               <h2 id="capstone-title">ParsuWISE</h2>
               <p className="case-lead">A unified learning platform that gives administrators, faculty members, and students the tools they need to manage, teach, learn, collaborate, and issue verifiable certificates.</p>
 
