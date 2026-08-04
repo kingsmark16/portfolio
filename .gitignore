@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+npm-debug.log*
+.DS_Store
+.vercel
+
+# Local agent and editor metadata
+.agents/
+.claude/
+.codex/
+skills-lock.json
+tsconfig.tsbuildinfo
