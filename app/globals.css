@@ -360,7 +360,6 @@ footer a:hover {
 }
 
 .eyebrow,
-.section-kicker,
 .section-heading p,
 .contact-band > div > p {
   margin: 0 0 var(--space-2);
@@ -370,8 +369,7 @@ footer a:hover {
   font-weight: 900;
 }
 
-.eyebrow.orange,
-.section-kicker {
+.eyebrow.orange {
   color: var(--color-orange);
 }
 
@@ -2123,6 +2121,13 @@ footer > a {
 
   .case-study {
     padding: var(--space-8) var(--space-3) var(--space-3);
+  }
+
+  .case-footer .chip-list {
+    width: 100%;
+    flex: 0 1 auto;
+    align-items: flex-start;
+    align-content: flex-start;
   }
 
   .wise-dashboard {
