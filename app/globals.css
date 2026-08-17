@@ -157,6 +157,27 @@ button:focus-visible {
   border-inline: var(--border-thin) solid var(--color-border-soft);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .site-header,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .hero-copy > *,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .hero-portrait,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .facts-strip > div,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .framed-section,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .section-block,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .about-experience,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .education-achievements,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .contact-band,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .case-points > article,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .project-card,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .toolkit-grid > article,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .services-list > li,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .experience-list > li,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .achievement-grid > div,
+  html[data-js="true"] .motion-scope[data-motion-state="pending"] .github-calendar-card {
+    visibility: hidden;
+  }
+}
+
 .scroll-progress {
   position: fixed;
   inset-block-start: 0;

@@ -8,6 +8,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+const motionTargets = [
+  ".site-header",
+  ".hero-copy > *",
+  ".hero-portrait",
+  ".facts-strip > div",
+  ".framed-section",
+  ".section-block",
+  ".about-experience",
+  ".education-achievements",
+  ".contact-band",
+  ".case-points > article",
+  ".project-card",
+  ".toolkit-grid > article",
+  ".services-list > li",
+  ".experience-list > li",
+  ".achievement-grid > div",
+  ".github-calendar-card",
+].join(", ");
+
 type PortfolioMotionProps = {
   children: ReactNode;
 };
@@ -18,6 +37,13 @@ export default function PortfolioMotion({ children }: PortfolioMotionProps) {
   useGSAP(() => {
     const root = scope.current;
     if (!root) return;
+
+    root.dataset.motionState = "pending";
+    const reduceMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotionPreference) {
+      gsap.set(root.querySelectorAll<HTMLElement>(motionTargets), { autoAlpha: 0 });
+    }
+    root.dataset.motionState = "ready";
 
     const header = root.querySelector<HTMLElement>(".site-header");
     const heroCopy = root.querySelectorAll<HTMLElement>(".hero-copy > *");
@@ -401,7 +427,7 @@ export default function PortfolioMotion({ children }: PortfolioMotionProps) {
   }, { scope });
 
   return (
-    <div ref={scope} className="motion-scope">
+    <div ref={scope} className="motion-scope" data-motion-state="pending">
       <div className="scroll-progress" aria-hidden="true"><span /></div>
       {children}
     </div>

@@ -63,14 +63,14 @@ const projects = [
     sourceCode: 'https://github.com/kingsmark16/heuristic-evaluation-web-reporting-site',
   },
   {
-    name: "Dearly",
+    name: "Letterly",
     eyebrow: "Personalized message pages",
     description:
       "A platform for creating personalized webpages for heartfelt messages, celebrations, confessions, and meaningful occasions, then sharing them through a unique link.",
     stack: ["TypeScript", "NextJS", "NestJS", "NodeJS", "TailwindCSS", "PostgreSQL", "Better Auth", "Prisma", "Docker", "Azure", "Vercel", "GitHub Actions"],
     variant: "message",
     liveDemo: null,
-    sourceCode: null,
+    sourceCode: 'https://github.com/kingsmark16/Letterly',
   },
 ] as const;
 
@@ -145,7 +145,7 @@ function SkillIcon({ name }: { name: string }) {
 const personId = `${siteConfig.url}/#person`;
 const websiteId = `${siteConfig.url}/#website`;
 const profilePageId = `${siteConfig.url}/#profile`;
-const profileImageUrl = `${siteConfig.url}/mark-angel.png`;
+const profileImageUrl = `${siteConfig.url}/mark-angel.webp`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -219,7 +219,7 @@ function ProjectVisual({ variant }: { variant: (typeof projects)[number]["varian
   if (variant === "report") {
     return (
       <div className="project-visual single-project-image" aria-label="Heuristic Evaluation reporting site">
-        <Image src="/hue.png" alt="Heuristic Evaluation reporting site" width={1897} height={931} />
+        <Image src="/hue.webp" alt="Heuristic Evaluation reporting site" width={1897} height={931} sizes="(max-width: 62rem) calc(100vw - 5rem), 29vw" />
       </div>
     );
   }
@@ -266,12 +266,12 @@ export default function Home() {
               <p className="availability"><span aria-hidden="true" /> Open to full stack developer opportunities</p>
               <div className="hero-actions">
                 <a className="button button-solid" href="#projects">Explore my work <ArrowDown size={16} aria-hidden="true" /></a>
-                <a className="button button-outline" href="#experience">Résumé <ArrowRight size={16} aria-hidden="true" /></a>
+                <a className="button button-outline" href="/Concina_M.A.pdf" target="_blank" rel="noreferrer">Résumé <ArrowRight size={16} aria-hidden="true" /></a>
               </div>
             </div>
 
             <div className="hero-portrait" aria-label="Portrait and developer status">
-              <Image src="/mark-angel.png" alt="Mark Angel Concina wearing a cream Barong Tagalog" width={971} height={1619} priority sizes="(max-width: 767px) 82vw, 42vw" />
+              <Image src="/mark-angel.webp" alt="Mark Angel Concina wearing a cream Barong Tagalog" width={971} height={1619} priority sizes="(max-width: 767px) 82vw, 42vw" />
               <div className="status-card design-card status-one" role="img" aria-label="Backend development code preview">
                 <div className="backend-design">
                   <div className="code-window-bar"><span className="code-dots"><i /><i /><i /></span><span>server.ts</span></div>
@@ -281,7 +281,7 @@ export default function Home() {
               <div className="status-card design-card status-two" role="img" aria-label="API response preview">
                 <div className="api-design">
                   <div className="api-header"><strong>API Response</strong><span>200 OK</span></div>
-                  <pre><code><span className="api-brace">&#123;</span>{"\n"}<span className="api-key">id:</span> 1287,{"\n"}<span className="api-key">status:</span> <span className="api-string">&quot;approved&quot;</span>,{"\n"}<span className="api-key">updated:</span> <span className="api-string">&quot;06-05-12&quot;</span>{"\n"}<span className="api-brace">&#125;</span></code></pre>
+                  <pre><code><span className="api-brace">&#123;</span>{"\n"}<span className="api-key">id:</span> 1287,{"\n"}<span className="api-key">status:</span> <span className="api-string">&quot;approved&quot;</span>,{"\n"}<span className="api-key">updated:</span> <span className="api-string">&quot;08-17-26&quot;</span>{"\n"}<span className="api-brace">&#125;</span></code></pre>
                 </div>
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function Home() {
             </article>
             <article>
               <div className="section-heading compact-heading"><div><p>Recognition</p><h2>Achievements</h2></div></div>
-              <div className="achievement-grid"><div><Award aria-hidden="true" /><span><strong>Dean&apos;s Lister</strong><small>Two time awardee</small></span></div><div><Gamepad2 aria-hidden="true" /><span><strong>Gamefest 2025</strong><small>First place</small></span></div></div>
+              <div className="achievement-grid"><div><Award aria-hidden="true" /><span><strong>Dean&apos;s Lister</strong><small>Two time awardee</small></span></div><div><Gamepad2 aria-hidden="true" /><span><strong>Gamefest 2025</strong><small>1st place</small></span></div></div>
             </article>
           </section>
 

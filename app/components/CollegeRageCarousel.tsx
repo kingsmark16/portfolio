@@ -6,15 +6,15 @@ import { useState } from "react";
 
 const collegeRageImages = [
   {
-    src: "/rage.png",
+    src: "/rage.webp",
     alt: "College Rage photo memories page",
   },
   {
-    src: "/rage1.png",
+    src: "/rage1.webp",
     alt: "College Rage video memories page",
   },
   {
-    src: "/rage2.png",
+    src: "/rage2.webp",
     alt: "College Rage admin dashboard",
   },
 ] as const;

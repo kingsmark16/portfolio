@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     lastName: "Concina",
     images: [
       {
-        url: "/mark-angel.png",
+        url: "/mark-angel.webp",
         width: 971,
         height: 1619,
         alt: "Portrait of Mark Angel Concina",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/mark-angel.png"],
+    images: ["/mark-angel.webp"],
   },
   robots: {
     index: true,
@@ -65,8 +65,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-PH">
+    <html lang="en-PH" suppressHydrationWarning>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.dataset.js = 'true';" }} />
         {children}
         <Analytics />
       </body>

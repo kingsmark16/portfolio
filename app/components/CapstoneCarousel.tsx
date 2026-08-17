@@ -6,35 +6,35 @@ import { useState } from "react";
 
 const capstoneImages = [
   {
-    src: "/capstone.png",
+    src: "/capstone.webp",
     alt: "ParsuWISE learning platform dashboard",
   },
   {
-    src: "/cap1.png",
+    src: "/cap1.webp",
     alt: "ParsuWISE project screen 1",
   },
   {
-    src: "/cap2.png",
+    src: "/cap2.webp",
     alt: "ParsuWISE project screen 2",
   },
   {
-    src: "/cap3.png",
+    src: "/cap3.webp",
     alt: "ParsuWISE project screen 3",
   },
   {
-    src: "/cap4.png",
+    src: "/cap4.webp",
     alt: "ParsuWISE project screen 4",
   },
   {
-    src: "/cap5.png",
+    src: "/cap5.webp",
     alt: "ParsuWISE project screen 5",
   },
   {
-    src: "/cap6.png",
+    src: "/cap6.webp",
     alt: "ParsuWISE project screen 6",
   },
   {
-    src: "/cap7.png",
+    src: "/cap7.webp",
     alt: "ParsuWISE project screen 7",
   },
 ] as const;
