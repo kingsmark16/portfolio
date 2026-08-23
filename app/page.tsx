@@ -72,6 +72,16 @@ const projects = [
     liveDemo: null,
     sourceCode: 'https://github.com/kingsmark16/Letterly',
   },
+  {
+    name: "Redis-caching-rate-limiter-with-nestjs-docker-and-nginx",
+    eyebrow: "Scalable backend API",
+    description:
+      "Built a production-style backend API using NestJS, PostgreSQL (Prisma), Redis, Docker Compose, and Nginx. Implemented full CRUD task management with cache-aside Redis caching (TTL + invalidation), distributed rate limiting across multiple API replicas, health/readiness checks, request correlation IDs, centralized error handling, and HTTPS reverse proxying. Designed with secure local practices (Redis ACLs, network isolation, non-root runtime, and secret hygiene) to demonstrate scalable, resilient backend architecture.",
+    stack: ["TypeScript", "NestJS", "NodeJS", "Redis", "PostgreSQL", "Docker", "Nginx", "Prisma"],
+    variant: "redis",
+    liveDemo: null,
+    sourceCode: "https://github.com/kingsmark16/Redis-caching-rate-limiter-with-nestjs-docker-and-nginx",
+  },
 ] as const;
 
 const toolkit = [
@@ -220,6 +230,14 @@ function ProjectVisual({ variant }: { variant: (typeof projects)[number]["varian
     return (
       <div className="project-visual single-project-image" aria-label="Heuristic Evaluation reporting site">
         <Image src="/hue.webp" alt="Heuristic Evaluation reporting site" width={1897} height={931} sizes="(max-width: 62rem) calc(100vw - 5rem), 29vw" />
+      </div>
+    );
+  }
+
+  if (variant === "redis") {
+    return (
+      <div className="project-visual single-project-image" aria-label="Redis caching and rate limiting Task API documentation">
+        <Image src="/redis-caching.png" alt="Task API documentation showing Redis caching and rate limiting endpoints" width={1837} height={850} sizes="(max-width: 62rem) calc(100vw - 5rem), 29vw" />
       </div>
     );
   }

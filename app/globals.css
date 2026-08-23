@@ -2017,7 +2017,7 @@ footer > a {
     grid-template-columns: 1fr 1fr;
   }
 
-  .project-card:last-child {
+  .project-card:nth-child(3):last-child {
     grid-column: 1 / -1;
   }
 
