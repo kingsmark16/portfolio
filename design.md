@@ -1,56 +1,37 @@
 # Portfolio design direction
 
-source: image
+Updated September 21, 2026. The current user-supplied reference is `public/design.png`; it supersedes the earlier cream and blue visual directions in the original specification.
 
-## Character
+Reproduce the dark emerald background, mint typography and buttons, compact bordered cards, portrait-led hero, decorative code panel, and section proportions. Use `public/profile.png` for the portrait and share metadata. Keep Mark Angel Concina’s real identity, contact destinations, projects, education, and achievements.
 
-Warm, practical, and credible. The page should feel like a carefully typeset technical resume mixed with a product case study. It uses a cream paper canvas, near black type, forest green for trust, and burnt orange for energy.
+The visual source of truth is `app/redesign.css`. The desktop reference is 1448 × 1086; the main content is centered at 1116px and the header/hero at 1034px. The custom portrait and real text necessarily differ from the sample. All six projects remain available in a native disclosure, with three featured screenshots shown initially. About details retain internship and education context.
 
-## Build mandate
+Responsive layouts adapt at 1150, 900, 600, and 370px, with an expanded desktop layout above 1600px. Navigation wraps below the brand on smaller screens; the portrait follows the introduction on phones. Quality cards use two columns on phones, projects and experience stack, and skill chips use three columns. Visible keyboard focus, native disclosures, image descriptions, and reduced motion are supported.
 
-Match the supplied desktop reference faithfully. Keep the page information rich, bordered, and compact. Use large confident hero type, thin warm borders, small labels, rounded cards, sparse shadows, dashboard inspired project visuals, and botanical line decorations used only as quiet background detail.
+The CV PDF is absent in the current workspace. The CTA requests the CV by email instead of linking to the missing file.
 
-The portrait is the hero anchor. ParsuWISE is the dominant case study. Supporting projects are equal cards. Toolkit, about and internship, activity, education, achievements, and the closing orange call to action follow the same order as the reference.
+## Full-screen hero update
 
-## Composition
+The header is now 73px on desktop and 113px when navigation wraps. The hero fills the remaining small viewport height with a content-safe minimum. Desktop content widens to 1600px with proportionally larger text, portrait, buttons, and status cards. Mobile content can exceed one viewport to avoid clipping.
 
-1. Top navigation with initials mark and section links
-2. Hero statement with portrait and engineering status cards
-3. Profile facts strip
-4. ParsuWISE capstone case study with narrative and dashboard mockup
-5. Three supporting project cards
-6. Technical toolkit grouped by discipline
-7. About and internship split panel
-8. Education and achievements
-9. Orange opportunity call to action
-10. Dark compact footer
+## Combined About and Skills
 
-## Components
+About and Skills now share one section with a 100svh minimum height, larger profile copy and quality cards, and eight technology categories. The full original toolkit and project-specific technologies are retained. Currently Learning remains distinct from the other categories. Navigation uses About & Skills; the nested #skills anchor remains available. Content grows beyond one viewport on smaller screens rather than clipping.
 
-- Thin bordered cards with modest rounding
-- Solid green, outline, orange, and amber button treatments
-- Uppercase eyebrow labels
-- Compact skill chips
-- Dashboard cards and miniature data visualizations
-- Line icons with consistent stroke weight
+## Expanded project gallery
 
-## Responsive behavior
+All six projects are displayed directly in large cards, with local previews, full descriptions, complete stacks, and available demo/source links. The View All Projects disclosure is removed; its anchor remains on the gallery. The layout uses three columns on desktop, two on tablets, and one on phones. Redis uses its existing API screenshot; Letterly clearly shows an in-development placeholder.
 
-- At wide sizes, retain the dense reference composition in a centered sheet.
-- At tablet sizes, stack case study copy above its interface mockup and use two column supporting grids.
-- At mobile sizes, collapse all grids to one column, hide nonessential decorative status cards, allow dashboard tables to scroll, and use full width actions.
-- Navigation remains available as a compact wrapped link row without requiring client side state.
+Project readability update: gallery now uses two wide desktop columns and one column at 900px and below. Screenshot aspect ratios remain uncropped. Project descriptions are 16px on desktop; technology badges are 15px with larger padding (13px on phones).
 
-## Tokens
+## GitHub activity
 
-The values live in `app/globals.css`. That file is the only source of truth for color, spacing, type, border, radius, shadow, and motion values.
+A full-screen GitHub section follows Projects. Live public profile statistics come from api.github.com/users/kingsmark16. Contribution history uses the existing github-contributions-api.jogruber.de integration, with selectable years. Totals, active days, longest streak within the selected range, and busiest day derive from returned daily counts. Profile and calendar load independently with timeouts, cancellation, and retry states. The wide calendar scrolls within its card on phones; a date field exposes daily counts without requiring hover. No API secret is shipped.
 
-## Do and do not
+## Expanded closing sections
 
-Do preserve tight hierarchy, real content, high contrast, and clearly grouped information.
+GitHub statistics now show only contributions and public repositories. Experience uses a spacious two-column grid with larger icons and text; contact uses a large invitation, prominent email and CV-request actions, contact tiles, and larger social links. The footer has larger branding, tagline, copyright, and a back-to-top link. These layouts stack on smaller screens.
 
-Do use semantic sections and readable body copy at every viewport.
+GSAP motion is mounted by `app/layout.tsx` through `PortfolioMotion`. The first visit plays a labeled hero timeline, section cards reveal on scroll, milestone cards sequence their icon and text, decorative orbs use scroll parallax, and a fixed mint bar tracks reading progress. At 900px and below, travel distances decrease. Reduced motion and print skip the animation setup. Content stays visible without JavaScript. Scoped matchMedia cleanup owns only this component's animations; font, image, and content size changes refresh scroll positions.
 
-Do not introduce dark mode, glass effects, neon gradients, oversized empty areas, or decorative animation that is absent from the reference.
-
-Do not invent contact details, project links, or work statistics.
+Initial paint uses a short-lived `data-motion-boot` visibility gate only for new navigation with normal motion preferences. `PortfolioMotion` releases it after installing GSAP starting styles. An 1800ms fallback reveals content if hydration is delayed, and late hydration skips the hero entrance. Reload and browser history restoration skip entrance replays so visible content does not reset; parallax, progress, and GitHub count effects remain active. Already visible section content also skips first-mount reveals.

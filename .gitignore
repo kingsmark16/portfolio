@@ -1,16 +1,22 @@
-node_modules/
+﻿node_modules/
 .next/
-.next-portfolio-*/
+.next-*/
 out/
 .env*
 !.env.example
 npm-debug.log*
 .DS_Store
-.vercel
+.vercel/
+tsconfig.tsbuildinfo
+
+# Local browser runs, screenshots, and diagnostics
+.playwright-cli/
+.playwright-mcp/
+.playwright-*.js
+output/
 
 # Local agent and editor metadata
 .agents/
 .claude/
 .codex/
 skills-lock.json
-tsconfig.tsbuildinfo

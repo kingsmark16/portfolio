@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "./site-config";
-import "./globals.css";
+import "./redesign.css";
+import PortfolioMotion from "./components/PortfolioMotion";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
     lastName: "Concina",
     images: [
       {
-        url: "/mark-angel.webp",
-        width: 971,
-        height: 1619,
+        url: "/profile.png",
+        width: 1086,
+        height: 1448,
         alt: "Portrait of Mark Angel Concina",
       },
     ],
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/mark-angel.webp"],
+    images: ["/profile.png"],
   },
   robots: {
     index: true,
@@ -59,16 +60,16 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f6f0e4",
-  colorScheme: "light",
+  themeColor: "#061211",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-PH" suppressHydrationWarning>
       <body>
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.dataset.js = 'true';" }} />
-        {children}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.dataset.js = 'true'; if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash && performance.getEntriesByType('navigation')[0]?.type === 'navigate') { document.documentElement.dataset.motionBoot = 'pending'; setTimeout(() => { delete document.documentElement.dataset.motionBoot; }, 1800); }" }} />
+        <PortfolioMotion>{children}</PortfolioMotion>
         <Analytics />
       </body>
     </html>
