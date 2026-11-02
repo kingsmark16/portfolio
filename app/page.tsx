@@ -5,6 +5,22 @@ import PortfolioNavigation from "./components/PortfolioNavigation";
 import GitHubActivity from "./components/GitHubActivity";
 const projects = [
   {
+    name: "VeryFact",
+    eyebrow: "AI fact checker",
+    description:
+      "A public, account-free fact checker for pasted text, article URLs, and screenshots. Uses Gemini and live search evidence to produce shareable reports with overall and per-claim verdicts, explanations, and source links.",
+    stack: ["Java", "Spring Boot", "React", "TypeScript", "TailwindCSS", "PostgreSQL", "Gemini", "SerpApi", "Docker", "GitHub Actions"],
+    variant: "fact-checker",
+    liveDemo: "https://veryfact.onrender.com",
+    previewImage: {
+      src: "/vf1.png",
+      width: 1512,
+      height: 742,
+      alt: "VeryFact homepage with text, article URL, and screenshot fact checking",
+    },
+    sourceCode: "https://github.com/kingsmark16/VeryFact",
+  },
+  {
     name: "College Rage",
     eyebrow: "Digital memory vault",
     description:
@@ -86,8 +102,14 @@ const projects = [
       "A platform for creating personalized webpages for heartfelt messages, celebrations, confessions, and meaningful occasions, then sharing them through a unique link.",
     stack: ["TypeScript", "NextJS", "NestJS", "NodeJS", "TailwindCSS", "PostgreSQL", "Better Auth", "Prisma", "Docker", "GitHub Actions"],
     variant: "message",
-    liveDemo: null,
-    previewImage: null,
+    status: "Currently in development",
+    liveDemo: "https://letterly-staging.vercel.app",
+    previewImage: {
+      src: "/letterly-image.png",
+      width: 1521,
+      height: 728,
+      alt: "Letterly homepage for creating personal pages with messages, memories, and questions",
+    },
     sourceCode: "https://github.com/kingsmark16/Letterly",
   },
 ] as const;
@@ -117,6 +139,8 @@ const structuredData = {
         "Accessible web applications",
         "JavaScript",
         "TypeScript",
+        "Java",
+        "Spring Boot",
         "React",
         "Next.js",
         "Node.js",
@@ -124,6 +148,8 @@ const structuredData = {
         "Prisma",
         "Docker",
         "Azure",
+        "Claude",
+        "Google Antigravity",
       ],
     },
     {
@@ -161,25 +187,28 @@ const structuredData = {
 
 
 const toolkit = [
- { title: "Languages", items: ["JavaScript", "TypeScript"] },
+ { title: "Languages", items: ["JavaScript", "TypeScript", "Java"] },
  { title: "Frontend", items: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS"] },
- { title: "Backend & APIs", items: ["Node.js", "ExpressJS", "NestJS", "REST APIs"] },
+ { title: "Backend & APIs", items: ["Node.js", "ExpressJS", "NestJS", "Spring Boot", "REST APIs"] },
  { title: "Databases & ORM", items: ["PostgreSQL", "MySQL", "MongoDB", "Prisma", "Redis"] },
  { title: "Deployment & Delivery", items: ["Docker", "Azure", "Render", "Vercel", "GitHub Actions", "Nginx", "Git"] },
  { title: "Authentication", items: ["Clerk", "Better Auth"] },
- { title: "AI Tools", items: ["GitHub Copilot", "OpenAI Codex"] },
+ { title: "AI Tools", items: ["Claude", "Google Antigravity", "GitHub Copilot", "OpenAI Codex"] },
  { title: "Currently Learning", items: ["Testing", "DevOps", "Cloud"] },
 ];
 const skillImages: Record<string, string> = {
  "HTML": "/HTML5.png", "CSS": "/CSS3.png", "JavaScript": "/js.png", "TypeScript": "/typescript.png",
+ "Java": "/java.png", "Spring Boot": "/spring-boot.png",
  "React": "/React (1).png", "Next.js": "/Next.js.png", "Tailwind CSS": "/Tailwind CSS.png",
  "Node.js": "/nodejs.png", "ExpressJS": "/icons8-express-js-50.png", "NestJS": "/icons8-nestjs-144.png",
  "REST APIs": "/icons8-rest-api-96.png", "PostgreSQL": "/icons8-postgresql-48.png",
  "MySQL": "/icons8-mysql-logo-48.png", "MongoDB": "/MongoDB.png", "Prisma": "/icons8-prisma-orm-100.png",
  "Docker": "/Docker.png", "Azure": "/Azure.png", "Vercel": "/Vercel.png", "GitHub Actions": "/GitHub Actions.png",
  "Redis": "/redis.png", "Render": "/Render.svg", "Nginx": "/Nginx.svg", "Git": "/Git.png",
- "Clerk": "/Clerk.svg", "Better Auth": "/better-auth.svg", "GitHub Copilot": "/github-copilot.svg",
- "OpenAI Codex": "/codex.svg", "Testing": "/test.png", "DevOps": "/devops.png", "Cloud": "/cloud.png",
+ "Clerk": "/Clerk.svg", "Better Auth": "/better-auth.svg",
+ "Claude": "/claude.png", "Google Antigravity": "/Google-Antigravity.png", "Antigravity": "/Google-Antigravity.png",
+ "GitHub Copilot": "/github-copilot.svg", "OpenAI Codex": "/codex.svg",
+ "Testing": "/test.png", "DevOps": "/devops.png", "Cloud": "/cloud.png",
 };
 const toolkitIcons: Record<string, typeof Code2> = {
  "Languages": Code2, "Frontend": MonitorSmartphone, "Backend & APIs": Server,
@@ -197,7 +226,7 @@ export default function Home() {
  <a className="skip-link" href="#main-content">Skip to main content</a>
  <header className="site-header"><div className="header-inner">
  <a className="brand" href="#home" aria-label="Mark Angel Concina, home"><span className="monogram">MC</span><span><strong>Mark Angel Concina</strong><small>Full Stack Developer</small></span></a>
- <PortfolioNavigation/><a className="button resume-button" href="/Concina_Mark_Angel_Resume.pdf" target="_blank" rel="noreferrer"><Download aria-hidden="true"/>Resume</a>
+ <PortfolioNavigation/><a className="button resume-button" href={siteConfig.resumeUrl} target="_blank" rel="noreferrer"><Download aria-hidden="true"/>Resume</a>
  </div></header>
  <main id="main-content">
  <section className="hero" id="home" aria-labelledby="hero-title"><div className="hero-inner">
@@ -236,6 +265,7 @@ export default function Home() {
     </div>}
     <div className="project-copy">
      <p className="project-eyebrow">{project.eyebrow}</p>
+     {"status" in project && <span className="project-status">{project.status}</span>}
      <h3>{projectLink ? <a href={projectLink} target="_blank" rel="noreferrer">{project.name}<ExternalLink aria-hidden="true"/></a> : <span>{project.name}</span>}</h3>
      <p className="project-description">{project.description}</p>
      <ul className="chips" aria-label={project.name + " technologies"}>{project.stack.map(item => <li key={item}>{item}</li>)}</ul>
