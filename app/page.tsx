@@ -112,6 +112,22 @@ const projects = [
     },
     sourceCode: "https://github.com/kingsmark16/Letterly",
   },
+  {
+    name: "Confession",
+    eyebrow: "Pop art confession page",
+    description:
+      "A responsive, pop art confession page built with React and TypeScript. It combines a paginated love letter, music player, animated romantic garden, memory gallery, final yes or no moment, and an optional message form backed by Supabase.",
+    stack: ["TypeScript", "React", "TailwindCSS", "Supabase", "Vite"],
+    variant: "confession",
+    liveDemo: "https://confession4u.mcanghel.fun",
+    previewImage: {
+      src: "/confession.png",
+      width: 1512,
+      height: 742,
+      alt: "Confession pop art love letter homepage preview",
+    },
+    sourceCode: "https://github.com/kingsmark16/Confession",
+  },
 ] as const;
 
 const personId = `${siteConfig.url}/#person`;
