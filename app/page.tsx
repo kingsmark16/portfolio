@@ -113,6 +113,22 @@ const projects = [
     sourceCode: "https://github.com/kingsmark16/Letterly",
   },
   {
+    name: "Macooii",
+    eyebrow: "AI personal assistant",
+    description:
+      "A Windows personal AI assistant with an animated voice console, press-to-talk local speech recognition and neural voice synthesis, public web research, approved document access, notes, explicit memory, and Codex, Gemini, or Ollama support.",
+    stack: ["Python", "PySide6", "QML", "SQLite", "Faster Whisper", "Kokoro ONNX", "OpenAI Codex", "Gemini", "Ollama", "Playwright"],
+    variant: "assistant",
+    liveDemo: null,
+    previewImage: {
+      src: "/ai-assistant.png",
+      width: 1533,
+      height: 823,
+      alt: "Macooii Windows AI personal assistant animated voice console interface",
+    },
+    sourceCode: "https://github.com/kingsmark16/macooii",
+  },
+  {
     name: "Confession",
     eyebrow: "Pop art confession page",
     description:
